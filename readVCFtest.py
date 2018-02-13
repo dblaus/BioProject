@@ -1,7 +1,13 @@
 import pandas as pd
-
 import io
 import os
+import allel
+
+# from sklearn import tree
+# from sklearn.tree import DecisionTreeClassifier
+# from sklearn.model_selection import train_test_split
+
+import CONSTS
 
 
 def read_vcf():
@@ -17,4 +23,16 @@ def read_vcf():
 
 if __name__ == '__main__':
     p = read_vcf()
-    print("done")
+
+    for key in p.keys():
+        for h_idx in CONSTS.HEALTHY_IDX:
+            if str(h_idx) in key:
+                p[key].append("1")
+            #else:
+                # p[key]['healthy'] = 0
+
+    # print(str(p))
+
+
+
+    print(str(test))
